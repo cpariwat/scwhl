@@ -1,0 +1,14 @@
+<header>
+<h1>Sad Cat Generator</h1>
+</header>
+<section class="output">
+  <img src="<%=image_path(@sad_cat.image['path'])%>" class="img-fluid rounded">
+  <p> Cat from: <%=link_to  @original_tumblr[:url], @original_tumblr[:url] %></p>
+  <p> Tweet from: <%=link_to @original_tweet[:url], @original_tweet[:url] %></p>
+  <div class="actions-container">
+      <a class="btn btn-primary" data-toggle="modal" data-target="#catCreationModal">Purrrfect! Save this sad cat</a>
+      <%= link_to 'Pass! give me a sadder cat!', new_sad_cat_path,
+                  method: :get , class: 'btn btn-primary' %>
+  </div>
+</section>
+<%= render 'sad_cats/partials/create_cat_modal', local: {sad_cat: @sad_cat}%>

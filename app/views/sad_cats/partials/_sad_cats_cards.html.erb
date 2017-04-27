@@ -1,0 +1,7 @@
+<% @sad_cats.each do | cat | %>
+    <% if cat.image.present? %>
+        <img width="<%=cat.image['width']%>"
+             height="<%=cat.image['height']%>"
+             src="<%=image_path(cat.image['path'])%>" class="rounded">
+    <% end %>
+<% end %>

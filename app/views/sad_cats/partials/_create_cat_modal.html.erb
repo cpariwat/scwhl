@@ -1,0 +1,34 @@
+<div id="catCreationModal" class="modal fade">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <%= form_for @sad_cat, method: :post do |f| %>
+          <div class="modal-header">
+            <h5 class="modal-title">If you like it then put your name on it.</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <%= f.text_field :creator %>
+            <!--<%= f.hidden_field :image, @sad_cat.image %>-->
+            <%= f.fields_for :image do |image|%>
+                <% @sad_cat.image.each do |key,value| %>
+                  <%= image.hidden_field key.to_sym, value: value %>
+                <% end %>
+            <% end %>
+
+            <% @original_tumblr.each do |key,value| %>
+                <%= hidden_field_tag "original_tumblr[#{key}]",value %>
+            <% end %>
+            <% @original_tweet.each do |key,value| %>
+                <%= hidden_field_tag "original_tweet[#{key}]",value %>
+            <% end %>
+          </div>
+          <div class="modal-footer">
+            <%= f.submit 'Ok. Done!', class: 'btn btn-primary' %>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Nope, I changed my mind</button>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>

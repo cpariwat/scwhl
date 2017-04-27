@@ -1,0 +1,25 @@
+.layout-default {
+
+  body {
+    background-color: #333;
+    color: #F7F7F7;
+
+    header, nav {
+     margin: 1rem auto;
+    }
+  }
+
+  .container {
+    text-align: center;
+  }
+
+  .modal {
+    color: #333;
+  }
+
+  .spinner {
+    > div {
+      background-color: #F7F7F7;
+    }
+  }
+}
